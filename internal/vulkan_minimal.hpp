@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include <volk.h>
+#include <vulkan/vulkan.h>
 
 #include <array>
 #include <limits>
@@ -24,7 +24,7 @@ namespace RHI
  */
 inline void load_symbols()
 {
-    volkInitialize();
+    // volkInitialize();
 }
 
 namespace Instance
@@ -86,7 +86,7 @@ inline VkInstance create_instance(std::vector<const char *> layers, std::vector<
     if (res != VK_SUCCESS)
         std::cerr << "Failed to create Vulkan instance : " << res << std::endl;
 
-    volkLoadInstance(instance);
+    // volkLoadInstance(instance);
 
     return instance;
 }
@@ -403,7 +403,7 @@ inline VkDevice create_logical_device(VkInstance instance, VkPhysicalDevice phys
     if (res != VK_SUCCESS)
         std::cerr << "Failed to create logical device : " << res << std::endl;
 
-    volkLoadDevice(device);
+    // volkLoadDevice(device);
 
     return device;
 }

@@ -32,14 +32,14 @@ int main()
         layers.emplace_back("VK_LAYER_LUNARG_monitor");
 
     std::vector<const char *> instanceExtensions = WSI::get_required_extensions();
-    instanceExtensions.push_back("VK_EXT_debug_utils");
-    instanceExtensions.push_back("VK_EXT_debug_report");
+    // instanceExtensions.push_back("VK_EXT_debug_utils");
+    // instanceExtensions.push_back("VK_EXT_debug_report");
     VkInstance instance = RHI::Instance::create_instance(layers, instanceExtensions, false);
 
-    VkDebugUtilsMessengerEXT debugMessenger =
-        RHI::Instance::Debug::create_debug_messenger(instance, VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT);
-    VkDebugReportCallbackEXT debugReport =
-        RHI::Instance::Debug::create_debug_report_callback(instance, VK_DEBUG_REPORT_ERROR_BIT_EXT);
+    // VkDebugUtilsMessengerEXT debugMessenger =
+    //     RHI::Instance::Debug::create_debug_messenger(instance, VK_DEBUG_UTILS_MESSAGE_SEVERITY_ERROR_BIT_EXT);
+    // VkDebugReportCallbackEXT debugReport =
+    //     RHI::Instance::Debug::create_debug_report_callback(instance, VK_DEBUG_REPORT_ERROR_BIT_EXT);
 
     std::vector<VkPhysicalDevice> physicalDevices = RHI::Device::get_physical_devices(instance);
     for (auto physicalDevice : physicalDevices)
@@ -267,8 +267,8 @@ int main()
 
     RHI::Presentation::Surface::destroy_surface(instance, surface);
 
-    RHI::Instance::Debug::destroy_debug_report_callback(instance, debugReport);
-    RHI::Instance::Debug::destroy_debug_messenger(instance, debugMessenger);
+    // RHI::Instance::Debug::destroy_debug_report_callback(instance, debugReport);
+    // RHI::Instance::Debug::destroy_debug_messenger(instance, debugMessenger);
 
     RHI::Instance::destroy_instance(instance);
 

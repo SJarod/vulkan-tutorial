@@ -20,7 +20,6 @@ set_property(TARGET ${component}
 
 target_link_libraries(${component}
     INTERFACE glfw
-    INTERFACE volk
     INTERFACE glm
 )
 
