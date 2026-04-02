@@ -1,7 +1,5 @@
 #pragma once
 
-// TODO : render in fbo instead of swapchain image directly (google search "bgra vs rgba")
-
 #include <iostream>
 
 #include <volk.h>
@@ -1587,6 +1585,7 @@ inline void present_back_buffer(VkQueue presentQueue, VkSwapchainKHR swapchain, 
                                 VkSemaphore &renderSemaphore)
 {
     VkSwapchainKHR swapchains[] = {swapchain};
+    // TODO : add a semaphore for each swapchain image
     VkSemaphore waitSemaphores[] = {renderSemaphore};
     VkPresentInfoKHR presentInfo = {
         .sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR,
