@@ -183,6 +183,7 @@ int main()
         uint32_t imageIndex = RHI::Render::acquire_back_buffer(device, swapchain, acquireSemaphores[backBufferIndex],
                                                                inFlightFences[backBufferIndex]);
 
+        // TODO : compute mvp matrices beforehand
         UniformBufferObjectT ubo = {
             .model = glm::mat4(1.f),
             .view = glm::lookAt(glm::vec3(0.f, 1.f, 1.f), glm::vec3(0.f), glm::vec3(0.f, 1.f, 0.f)),
